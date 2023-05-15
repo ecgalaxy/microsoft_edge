@@ -1,0 +1,11 @@
+---
+- name: Ensure Microsoft Edge repo present
+  ansible.builtin.yum_repository:
+    name: microsoft-edge-stable
+    description: Microsoft Edge repository
+    state: present
+    file: microsoft-edge-stable
+    baseurl: "{{ edge_repo_url }}"
+    gpgkey: "{{ edge_gpg_key_url }}"
+    gpgcheck: yes
+  become: true

@@ -1,0 +1,4 @@
+---
+edge_gpg_keyring_url: "https://packages.microsoft.com/keys/microsoft.asc"
+edge_gpg_keyring_dest: /usr/share/keyrings/microsoft.asc
+edge_gpg_keyring_repo: https://packages.microsoft.com/repos/edge

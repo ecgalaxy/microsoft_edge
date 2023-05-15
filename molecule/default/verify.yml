@@ -1,0 +1,13 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check binary file
+      ansible.builtin.stat:
+        path: /usr/bin/microsoft-edge
+      register: bin
+    - name: Assert that Microsoft Edge is installed
+      ansible.builtin.assert:
+        that:
+          - "bin.stat.exists"

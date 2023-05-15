@@ -1,0 +1,14 @@
+---
+- name: Ensure Microsoft signing key present
+  ansible.builtin.get_url:
+    url: "{{ edge_gpg_keyring_url }}"
+    dest: "{{ edge_gpg_keyring_dest }}"
+    mode: '0644'
+    force: true
+  become: true
+
+- name: Ensure Microsoft Edge repo present
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64 signed-by={{ edge_gpg_keyring_dest }}] {{ edge_gpg_keyring_repo }} stable main"
+    state: present
+  become: true
