@@ -3,7 +3,7 @@
   hosts: all
   become: true
   roles:
-    - role: ecgalaxy.microsoft_edge
+    - role: microsoft_edge
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
     https_proxy: "{{ lookup('env', 'https_proxy') }}"
